@@ -1,6 +1,6 @@
+import CataloguePage from 'catalogue/CataloguePage'
 import { Route, Routes } from 'react-router-dom'
 
-import Catalogue from './Catalogue'
 import Test from './test'
 
 const PagesNavigation = () => {
@@ -8,7 +8,7 @@ const PagesNavigation = () => {
     <div>
       <Routes>
         <Route element={<Test />} path="/" />
-        <Route element={<Catalogue />} path="/catalogue" />
+        <Route element={<CataloguePage />} path="/catalogue" />
       </Routes>
     </div>
   )
