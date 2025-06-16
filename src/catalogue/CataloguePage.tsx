@@ -9,8 +9,6 @@ const CataloguePage = () => {
   const title = currentCategory.categoryName
   return (
     <div>
-      <h1>{title}</h1>
-
       <nav>
         {categoriesArray.map((c) => (
           <Link key={c.key} to={`/catalog/${c.key}`}>
@@ -18,6 +16,18 @@ const CataloguePage = () => {
           </Link>
         ))}
       </nav>
+      <h1>{title}</h1>
+      <div>
+        {currentCategory.products?.map((product) => (
+          <div>
+            <div key={product.id}>
+              <img alt={product.itemName} src={product.img} width={200} />
+              <div>{product.itemName}</div>
+              <div>{product.price} ₽</div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
