@@ -8,9 +8,13 @@ const Categories = () => {
     <CategoriesWrap>
       {categoriesArray.map((item, index) => (
         <Category key={index} style={{ backgroundColor: item.backgroundColor }}>
-          {item.category}
-          <img alt={item.category} src={item.img} style={{ width: '200px' }} />
-          <Link to={`/catalogue/`}>{item.category}</Link>
+          {item.categoryName}
+          <img
+            alt={item.categoryName}
+            src={item.img}
+            style={{ width: '200px' }}
+          />
+          <Link to={`/catalogue/`}>{item.categoryName}</Link>
         </Category>
       ))}
     </CategoriesWrap>

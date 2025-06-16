@@ -1,16 +1,38 @@
 export const categoriesArray = [
-  { category: 'Букеты', backgroundColor: 'lightblue', img: '/bouquet.png' },
-  { category: 'Композиции', backgroundColor: 'pink', img: '/composition.png' },
   {
-    category: 'Корзины цветов',
+    key: 'bouquets',
+    categoryName: 'Букеты',
+    backgroundColor: 'lightblue',
+    img: '/bouquet.png'
+  },
+  {
+    key: 'compositions',
+    categoryName: 'Композиции',
+    backgroundColor: 'pink',
+    img: '/composition.png'
+  },
+  {
+    key: 'baskets',
+    categoryName: 'Корзины цветов',
     backgroundColor: 'lightgreen',
     img: '/basket.png'
   },
-  { category: 'Монобукеты', backgroundColor: 'lightgray', img: '/mono.png' },
   {
-    category: 'Комнатные растения',
+    key: 'mono-bouquets',
+    categoryName: 'Монобукеты',
+    backgroundColor: 'lightgray',
+    img: '/mono.png'
+  },
+  {
+    key: 'plants',
+    categoryName: 'Комнатные растения',
     backgroundColor: 'yellow',
     img: '/plants.png'
   },
-  { category: 'Конфеты', backgroundColor: 'purple', img: '/chocolate.png' }
+  {
+    key: 'sweets',
+    categoryName: 'Конфеты',
+    backgroundColor: 'purple',
+    img: '/chocolate.png'
+  }
 ]

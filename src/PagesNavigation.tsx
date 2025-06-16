@@ -8,7 +8,7 @@ const PagesNavigation = () => {
     <div>
       <Routes>
         <Route element={<Test />} path="/" />
-        <Route element={<CataloguePage />} path="/catalogue" />
+        <Route element={<CataloguePage />} path="/catalogue/:category" />
       </Routes>
     </div>
   )
