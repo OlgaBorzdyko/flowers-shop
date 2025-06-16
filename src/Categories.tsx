@@ -14,7 +14,7 @@ const Categories = () => {
             src={item.img}
             style={{ width: '200px' }}
           />
-          <Link to={`/catalogue/`}>{item.categoryName}</Link>
+          <Link to={`/catalogue/${item.key}`}>{item.categoryName}</Link>
         </Category>
       ))}
     </CategoriesWrap>
