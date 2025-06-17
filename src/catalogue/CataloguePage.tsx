@@ -1,6 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
 import { useGetCategoriesQuery } from 'services/api'
 
+import ItemsCounter from './utils/ItemsCounter'
+
 const CataloguePage = () => {
   const { category } = useParams()
   const { data: categories, isLoading } = useGetCategoriesQuery()
@@ -30,6 +32,7 @@ const CataloguePage = () => {
                 <div>{product.itemName}</div>
               </div>
             </Link>
+            <ItemsCounter productId={product.id} />
             <div>{product.price} ₽</div>
           </>
         ))}
