@@ -14,7 +14,7 @@ const CataloguePage = () => {
     <div>
       <nav>
         {categories?.map((c) => (
-          <Link key={c.key} to={`/catalog/${c.key}`}>
+          <Link key={c.key} to={`/catalogue/${c.key}`}>
             {c.categoryName}
           </Link>
         ))}
