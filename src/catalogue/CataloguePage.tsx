@@ -19,16 +19,18 @@ const CataloguePage = () => {
       <h1>{title}</h1>
       <div>
         {currentCategory.products?.map((product) => (
-          <Link
-            key={product.id}
-            to={`/catalogue/item/${product.id}-${product.itemName}`}
-          >
-            <div>
-              <img alt={product.itemName} src={product.img} width={200} />
-              <div>{product.itemName}</div>
-              <div>{product.price} ₽</div>
-            </div>
-          </Link>
+          <>
+            <Link
+              key={product.id}
+              to={`/catalogue/item/${product.id}-${product.itemName}`}
+            >
+              <div>
+                <img alt={product.itemName} src={product.img} width={200} />
+                <div>{product.itemName}</div>
+              </div>
+            </Link>
+            <div>{product.price} ₽</div>
+          </>
         ))}
       </div>
     </div>

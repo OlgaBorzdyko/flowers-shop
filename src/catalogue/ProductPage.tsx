@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { categoriesArray } from '../categoriesArray'
+import { addToCart } from './utils/addToCart'
 import ItemsCounter from './utils/ItemsCounter'
 
 const ProductPage = () => {
@@ -23,6 +24,7 @@ const ProductPage = () => {
       <p>
         <strong>Итого: {totalPrice} ₽</strong>
       </p>
+      <button onClick={() => addToCart()}>Купить</button>
     </div>
   )
 }
