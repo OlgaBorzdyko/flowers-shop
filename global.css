@@ -1,12 +1,20 @@
-html {
-    background-color: #ffffff;
-    color: black;
-    font-family: "Montserrat";
-}
-
 body {
-    background: linear-gradient(to right, white 50%, pink 50%);
     margin: 0;
     height: 100vh;
+    font-family: 'Montserrat';
+    color: black;
+    background: var(--bg-color);
+}
+
+.home-page-theme {
+    --bg-color: linear-gradient(to right, white 50%, pink 50%);
+}
+body.home-page-theme {
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+}
+
+.theme-default {
+    --bg-color: white;
 }
 
