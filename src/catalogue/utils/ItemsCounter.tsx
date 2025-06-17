@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 const ItemsCounter = () => {
-  const [count, setCount] = useState<number>(0)
+  const [count, setCount] = useState<number>(1)
   const onHandleClick = (type: 'plus' | 'minus') => {
     if (type === 'plus') {
       setCount((prev) => prev + 1)
     } else {
-      setCount((prev) => Math.max(0, prev - 1))
+      setCount((prev) => Math.max(1, prev - 1))
     }
   }
 
