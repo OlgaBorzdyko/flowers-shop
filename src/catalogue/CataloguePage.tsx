@@ -1,16 +1,17 @@
 import { Link, useParams } from 'react-router-dom'
-
-import { categoriesArray } from '../categoriesArray'
+import { useGetCategoriesQuery } from 'services/api'
 
 const CataloguePage = () => {
   const { category } = useParams()
+  const { data: categories, isLoading } = useGetCategoriesQuery()
+  if (isLoading) return <div>Загрузка...</div>
   const currentCategory =
-    categoriesArray.find((c) => c.key === category) ?? categoriesArray[0]
+    categories?.find((c) => c.key === category) ?? categories[0]
   const title = currentCategory.categoryName
   return (
     <div>
       <nav>
-        {categoriesArray.map((c) => (
+        {categories?.map((c) => (
           <Link key={c.key} to={`/catalog/${c.key}`}>
             {c.categoryName}
           </Link>

@@ -1,20 +1,26 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { categoriesArray } from './categoriesArray'
+import { useGetCategoriesQuery } from './services/api'
 
 const Categories = () => {
+  const { data: categories } = useGetCategoriesQuery()
+
   return (
     <CategoriesWrap>
-      {categoriesArray.map((item, index) => (
-        <Category key={index} style={{ backgroundColor: item.backgroundColor }}>
-          {item.categoryName}
-          <img
-            alt={item.categoryName}
-            src={item.img}
-            style={{ width: '200px' }}
-          />
-          <Link to={`/catalogue/${item.key}`}>{item.categoryName}</Link>
+      {categories?.map((item) => (
+        <Category
+          key={item.key}
+          style={{ backgroundColor: item.backgroundColor }}
+        >
+          <Link to={`/catalogue/${item.key}`}>
+            <h2>{item.categoryName}</h2>
+            <img
+              alt={item.categoryName}
+              src={item.img}
+              style={{ width: '200px' }}
+            />
+          </Link>
         </Category>
       ))}
     </CategoriesWrap>
@@ -33,5 +39,3 @@ const Category = styled.div`
   flex: 1 1 calc(50% - 10px);
   box-sizing: border-box;
 `
-
-//<Link to={`/catalogue/${item.category}`}>{item.category}</Link>

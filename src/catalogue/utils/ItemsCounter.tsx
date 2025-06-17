@@ -1,28 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-const ItemsCounter = ({
-  initialCount = 1,
-  onChange
-}: {
-  initialCount?: number
-  onChange: (count: number) => void
-}) => {
-  const [count, setCount] = useState<number>(initialCount)
-  console.log(initialCount)
-  const onHandleClick = (type: 'plus' | 'minus') => {
-    setCount((prev) => {
-      return type === 'plus' ? prev + 1 : Math.max(1, prev - 1)
-    })
-  }
-  useEffect(() => {
-    onChange?.(count)
-  }, [count, onChange])
+import { decremented, incremented } from '../../services/counterSlice'
+import { AppDispatch, RootState } from '../../services/store'
 
+const ItemsCounter = ({ productId }: { productId: number }) => {
+  const dispatch = useDispatch<AppDispatch>()
+  const count = useSelector(
+    (state: RootState) => state.counter.counts[productId] || 1
+  )
   return (
     <div>
       <button
         onClick={() => {
-          onHandleClick('minus')
+          dispatch(decremented({ productId }))
         }}
       >
         -
@@ -30,7 +20,7 @@ const ItemsCounter = ({
       {count}
       <button
         onClick={() => {
-          onHandleClick('plus')
+          dispatch(incremented({ productId }))
         }}
       >
         +
