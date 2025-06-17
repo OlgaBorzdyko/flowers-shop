@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom'
 
 import { categoriesArray } from '../categoriesArray'
+import ItemsCounter from './utils/ItemsCounter'
 
 const ProductPage = () => {
   const { id } = useParams()
@@ -15,6 +16,7 @@ const ProductPage = () => {
       <h1>{product?.itemName}</h1>
       <img alt={product?.itemName} src={product?.img} width={300} />
       <p>Цена: {product?.price} ₽</p>
+      <ItemsCounter />
     </div>
   )
 }
