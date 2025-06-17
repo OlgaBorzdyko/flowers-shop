@@ -1,14 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const ItemsCounter = () => {
-  const [count, setCount] = useState<number>(1)
+const ItemsCounter = ({
+  initialCount = 1,
+  onChange
+}: {
+  initialCount?: number
+  onChange: (count: number) => void
+}) => {
+  const [count, setCount] = useState<number>(initialCount)
+  console.log(initialCount)
   const onHandleClick = (type: 'plus' | 'minus') => {
-    if (type === 'plus') {
-      setCount((prev) => prev + 1)
-    } else {
-      setCount((prev) => Math.max(1, prev - 1))
-    }
+    setCount((prev) => {
+      return type === 'plus' ? prev + 1 : Math.max(1, prev - 1)
+    })
   }
+  useEffect(() => {
+    onChange?.(count)
+  }, [count, onChange])
 
   return (
     <div>
