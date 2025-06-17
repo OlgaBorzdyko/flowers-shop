@@ -7,7 +7,6 @@ const ProductPage = () => {
   const allProducts = categoriesArray
     .filter((c) => Array.isArray(c.products))
     .flatMap((c) => c.products)
-  console.log(allProducts)
   const numericId = parseInt(id || '', 10)
   const product = allProducts.find((p) => p.id === numericId)
 
