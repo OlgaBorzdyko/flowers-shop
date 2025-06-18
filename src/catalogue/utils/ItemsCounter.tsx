@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { decremented, incremented } from '../../services/counterSlice'
+import { decremented, incremented } from '../../services/cartSlice'
 import { AppDispatch, RootState } from '../../services/store'
 
 const ItemsCounter = ({ productId }: { productId: number }) => {
   const dispatch = useDispatch<AppDispatch>()
   const count = useSelector(
-    (state: RootState) => state.counter.counts[productId] || 1
+    (state: RootState) => state.cart.counts[productId] || 1
   )
   return (
     <div>
