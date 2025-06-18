@@ -5,10 +5,16 @@ interface CartState {
   counts: Record<number, number>
 }
 
-const initialState: CartState = {
-  items: [],
-  counts: {}
+const loadFromLocalStorage = (): CartState => {
+  try {
+    const saved = localStorage.getItem('cart')
+    if (saved) return JSON.parse(saved)
+  } catch (e) {
+    console.error('Ошибка чтения из localStorage', e)
+  }
+  return { items: [], counts: {} }
 }
+const initialState: CartState = loadFromLocalStorage()
 const cartSlice = createSlice({
   name: 'cart',
   initialState,

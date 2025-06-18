@@ -12,5 +12,14 @@ export const store = configureStore({
     getDefaultMiddleware().concat(catalogueApi.middleware)
 })
 
+store.subscribe(() => {
+  try {
+    const state = store.getState()
+    localStorage.setItem('cart', JSON.stringify(state.cart))
+  } catch (e) {
+    console.error('Ошибка сохранения в localStorage', e)
+  }
+})
+
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
