@@ -1,10 +1,13 @@
+import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
+import { addToCart } from '../cart/addToCart'
 import { useGetCategoriesQuery } from '../services/api'
-import { addToCart } from './utils/addToCart'
+import { AppDispatch } from '../services/store'
 import ItemsCounter from './utils/ItemsCounter'
 
 const ProductPage = () => {
+  const dispatch = useDispatch<AppDispatch>()
   const { id } = useParams()
   const { data: categories, isLoading, error } = useGetCategoriesQuery()
   if (isLoading) return <div>Загрузка...</div>
@@ -22,7 +25,7 @@ const ProductPage = () => {
       <p>
         <strong>Итого: ₽</strong>
       </p>
-      <button onClick={() => addToCart()}>Купить</button>
+      <button onClick={() => dispatch(addToCart(product.id))}>Купить</button>
     </div>
   )
 }
